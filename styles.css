@@ -1,0 +1,34 @@
+/* Dalam kasus ini, hampir semua styling ditangani oleh Tailwind CSS */
+/* File CSS ini dapat berisi kustomisasi tambahan jika diperlukan */
+
+/* Contoh kustomisasi tambahan */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+  }
+  
+  .dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+  
+  /* Animasi transisi untuk dark mode */
+  .transition {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Fokus pada input */
+  input:focus, button:focus {
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+  }
+  
+  /* Responsif untuk layar kecil */
+  @media (max-width: 640px) {
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+    
+    .gap-3 {
+      gap: 0.5rem;
+    }
+  }
