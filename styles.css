@@ -1,34 +1,292 @@
-/* Dalam kasus ini, hampir semua styling ditangani oleh Tailwind CSS */
-/* File CSS ini dapat berisi kustomisasi tambahan jika diperlukan */
+/* Dark Modern Theme for Age Calculator */
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #6366f1;
+  --primary-light: rgba(79, 70, 229, 0.1);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --background-main: #0f172a;
+  --background-card: #1e293b;
+  --background-input: #334155;
+  --card-border: #334155;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
 
-/* Contoh kustomisasi tambahan */
+body {
+  background-color: var(--background-main);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(var(--primary-color), transparent 70%);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(var(--primary-color), transparent 70%);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-card {
+  background-color: var(--background-card);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.main-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.card-title i {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.form-label {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.form-control {
+  background-color: var(--background-input);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  background-color: var(--background-input);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  color: var(--text-primary);
+}
+
+.form-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Results styling */
+.result-card {
+  background-color: var(--background-main);
+  border-radius: 1rem;
+  padding: 1.25rem 0.75rem;
+  height: 100%;
+  border: 1px solid var(--card-border);
+  transition: var(--transition);
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
+}
+
+.result-icon {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.result-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Detail section */
+.section-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.detail-section, .countdown-section {
+  background-color: var(--background-main);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--card-border);
+}
+
+.stats-container {
+  margin-top: 0.5rem;
+}
+
+.stat-item {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stat-value {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Birthday countdown */
+.countdown-display {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 1rem 0;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Custom alert */
+.alert-custom-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .result-value {
+    font-size: 2rem;
+  }
+  
+  .result-card {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Custom calendar dropdown styles */
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.5);
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Loading state pulse animation */
+@keyframes loadingPulse {
+  0% {
+    opacity: 0.6;
   }
-  
-  .dark input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+  50% {
+    opacity: 1;
   }
-  
-  /* Animasi transisi untuk dark mode */
-  .transition {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  100% {
+    opacity: 0.6;
   }
-  
-  /* Fokus pada input */
-  input:focus, button:focus {
-    outline: 2px solid rgba(59, 130, 246, 0.5);
-    outline-offset: 2px;
-  }
-  
-  /* Responsif untuk layar kecil */
-  @media (max-width: 640px) {
-    .grid-cols-3 {
-      grid-template-columns: 1fr;
-    }
-    
-    .gap-3 {
-      gap: 0.5rem;
-    }
-  }
+}
+
+.loading {
+  animation: loadingPulse 1.5s infinite;
+}
